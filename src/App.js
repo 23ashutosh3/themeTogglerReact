@@ -1,26 +1,67 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+//import React, {Fragment} from "react"
+//import Provider from "./provider"
+//import Context from "./context"
 
-function App() {
+//const Agents =()=>
+//{
+//  return <AgentOne />
+//}
+
+//const AgentOne =() =>{
+//  return <AgentTwo/>
+//}
+
+//const AgentTwo =() =>{
+//  return <AgentBond/>
+//}
+
+//const AgentBond =() =>{
+//  return(
+//    <Context.Consumer>
+//      {
+//        (context) => (
+//          <Fragment>
+//            <h3>Agent Informtion</h3>
+//        <p>Mission Name: {context.data.mname}</p>
+//        <h2>Mission Status: {context.data.accept}</h2>
+//          <button onClick={context.isMissionAccepted}> Choose to accept</button>
+//          </Fragment>
+//        )
+//      }
+//    </Context.Consumer>
+//  )
+//}
+
+//const App =()=>{
+//  return (
+//    <div>
+//      <h1>Context API</h1>
+//      <Provider>
+//        <Agents />
+//      </Provider>
+//    </div>
+//  )
+//}
+
+//export default App
+
+
+import React,{useState} from 'react';
+import ThemeContext from "./Context/ThemeContext"
+import Header from "./Components/Header"
+import HeroSection from "./Components/HeroSection"
+
+
+const App =() =>
+{
+  const themeHook =useState("light")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeContext.Provider value={themeHook}>
+      <div><Header /><HeroSection /></div>
+      
+
+    </ThemeContext.Provider>
+  )
 }
 
-export default App;
+export default App
